@@ -1,0 +1,42 @@
+项目简介：该项目是基于日常计算宿舍水电煤气费的需求写的，旨在从无到有实现搭建vue+ElementUI+less+ES6的开发环境并进行简单的开发，使用webpack进行代码的编译、压缩和打包，并疏通了该项目如何放到服务器上运行的全过程。
+
+项目环境搭建
+一、vue的安装和使用
+1.安装node
+2.全局安装vue-cli，用npm install -g vue-cli命令
+3.用webpack初始化项目,在需要放置项目的路径下用vue init webpack BillingSystem（项目名）命令
+
+二、element的安装和使用
+4.安装element-ui,用npm i element-ui -S命令
+5.引入element-ui,在main.js写入
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);即可引入
+
+三、less的安装和使用
+6.安装cnpm，用npm install -g cnpm --registry=https://registry.npm.taobao.org命令
+7.安装less，用cnpm install less less-loader --save命令
+8.在vue文件style中加上lang="less"的属性，即可使用
+
+四、项目运行
+1.安装cnpm，用npm install -g cnpm --registry=https://registry.npm.taobao.org命令
+2.安装依赖，用cnpm install命令
+3.项目运行，用npm run dev命令
+4.访问http://localhost:8080
+
+五、项目部署到Express服务器上
+1.编译项目，用npm run build命令，生成dist文件夹
+2.全局安装express-generator，用npm install express-generator -g命令
+3.创建一个express项目，在需要放置项目的路径下用express BillingSystemBuild（项目名）命令
+4.进入BillingSystemBuild目录，安装项目依赖，用npm install命令
+5.把dist目录复制到express项目的public文件夹下,把dist里的static文件夹剪切到public文件夹下
+6.运行npm start，启动服务器
+7.访问http://localhost:3000/dist
+
+六、项目部署Tomcat服务器上
+1.编译项目，用npm run build命令，生成dist文件夹
+2.将dist文件夹放在tomcat安装路径下的webapps文件夹里
+3.新增环境变量中的系统变量，变量名为JAVA_HOME，变量值为jdk的路径
+4.把dist目录复制到webapps文件夹下,把dist里的static文件夹剪切到webapps文件夹下
+5.运行Tomcat的bin/startup.bat
+6.访问http://localhost:3000/dist
